@@ -1,0 +1,39 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/cpp
+{
+	"name": "C [42] Graph",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"ms-vscode.cpptools-extension-pack",
+				"DoKca.42-ft-count-line",
+				"kube.42header"
+			]
+		}
+	},
+	"containerEnv": {
+		"DISPLAY": "host.docker.internal:0",
+		"LIBGL_ALWAYS_SOFTWARE": "1",
+		"VK_ICD_FILENAMES": "/usr/share/vulkan/icd.d/lvp_icd.aarch64.json",
+		"SDL_VIDEODRIVER": "x11"
+	},
+	"runArgs": [
+		"--net=host" 
+	],
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "cc --version",
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "root"
+}
