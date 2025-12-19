@@ -1,3 +1,6 @@
 [submodule "MacroLibX"]
 	path = MacroLibX
 	url = https://github.com/seekrs/MacroLibX.git
+[submodule "libft"]
+	path = libft
+	url = https://git.0verlight.com/42/custom_libft.git
