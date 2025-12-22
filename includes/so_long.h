@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 21:55:08 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/20 02:29:59 by amartel          ###   ########.fr       */
+/*   Created: 2025/12/21 00:19:22 by amartel           #+#    #+#             */
+/*   Updated: 2025/12/21 00:21:12 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../MacroLibX/includes/mlx.h"
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
-int main(void)
-{
-	mlx_context mlx = mlx_init();
+int	map(void);
 
-	mlx_window_create_info info = {0};
-	info.title = "Hello World!";
-	info.width = 400;
-	info.height = 400;
-	mlx_window win = mlx_new_window(mlx, &info);
-
-	mlx_loop(mlx);
-
-	mlx_destroy_window(mlx, win);
-	mlx_destroy_context(mlx);
-}
+# endif
