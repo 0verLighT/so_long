@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/21 00:19:22 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/23 00:19:59 by amartel          ###   ########.fr       */
+/*   Created: 2025/12/23 00:20:06 by amartel           #+#    #+#             */
+/*   Updated: 2025/12/23 00:20:20 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-#include "../MacroLibX/includes/mlx.h"
-
-typedef struct
+void window_hook(int event, void *param)
 {
-	mlx_context mlx;
-	mlx_window win;
-} mlx_t;
-
-void key_hook(int key, void *param);
-void window_hook(int event, void *param);
-int	map(void);
-
-# endif
+	if (event == 0)
+		mlx_loop_end((mlx_context)param);
+}

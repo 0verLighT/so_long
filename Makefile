@@ -4,17 +4,20 @@ MLX= ./MacroLibX/libmlx.so
 LIBFT= ./libft/libft.a
 MLX_DIR= ./MacroLibX
 LIBFT_DIR= ./libft
-LDFLAGS = -L$(MLX_DIR) -L$(LIBFT_DIR)
+LDFLAGS = -L$(MLX_DIR) -L$(LIBFT_DIR) -Wl,-rpath,$(MLX_DIR)
 LDLIBS = -lmlx -lft -lm -lSDL2
 NAME = so_long
 INCLUDES = -Iincludes -I$(MLX_DIR)/includes -I$(LIBFT_DIR)
 BUILD_DIR = .build
 SRC = main.c
 SRC_CHECKER = map.c
+SRC_HOOK = key.c window.c
 
 SRCS = \
 	$(addprefix src/, $(SRC)) \
-	$(addprefix src/checker/, $(SRC_CHECKER))
+	$(addprefix src/checker/, $(SRC_CHECKER)) \
+	$(addprefix src/hook/, $(SRC_HOOK))
+
 
 OBJS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
 

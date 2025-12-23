@@ -1,6 +1,6 @@
 # So_long
 
-## Macos (M1...5)
+## Macos Apple silicon
 
 Macos X11 for so_long
 
@@ -37,3 +37,10 @@ docker ps
 docker exec -it <ID> bash
 ```
 And execute the program.
+
+## dev 
+
+- [x] Hook (ESC and close window)
+- [ ] Map checker (flood fill)
+- [ ] Display Map
+- [ ] Count move shell
