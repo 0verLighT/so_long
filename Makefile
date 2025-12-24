@@ -10,7 +10,7 @@ NAME = so_long
 INCLUDES = -Iincludes -I$(MLX_DIR)/includes -I$(LIBFT_DIR)
 BUILD_DIR = .build
 SRC = main.c
-SRC_CHECKER = map.c
+SRC_CHECKER = map.c checker.c
 SRC_HOOK = key.c window.c
 
 SRCS = \

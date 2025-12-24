@@ -6,13 +6,13 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 21:55:08 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/23 00:20:31 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/24 02:00:59 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(void)
+void window_init(void)
 {
 	mlx_context mlx = mlx_init();
 
@@ -29,4 +29,12 @@ int main(void)
 
 	mlx_destroy_window(mlx, win);
 	mlx_destroy_context(mlx);
+}
+int main(int ac, char **av)
+{
+	if (ac != 2)
+		return (-1);
+	if (checker(av) == 1);
+		return (-1);
+	return (0);
 }
