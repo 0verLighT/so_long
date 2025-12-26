@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 00:19:22 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/26 01:27:14 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/26 02:20:25 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ void	window_hook(int event, void *param);
 int		checker(char **av);
 void	error(char *msg);
 void	free_before_err(char **map, char *msg);
+void	free_gnl_err(char **map, char *msg);
+void	map_content_checker(char **map);
 
 # endif

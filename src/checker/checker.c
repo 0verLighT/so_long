@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 01:19:32 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/26 01:25:33 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/26 02:20:47 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static char	**append_map(char *pathfile)
 		map[i] = line_checker(line);
 		free(line);
 		if (!map[i++])
-			free_before_err(map, "Error\n");
+			free_gnl_err(map, "Error\n");
 	}
 	close(fd);
 	map[i] = NULL;
@@ -109,7 +109,7 @@ int	checker(char **av)
 	valid_path(av);
 	map = append_map(av[1]);
 	i = 0;
-	
+	map_content_checker(map);
 	while (map[i])
 	{
 		printf("Rows %ld : %s\n", i, map[i]);
