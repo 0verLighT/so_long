@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 00:19:22 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/26 20:52:56 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/27 16:57:50 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ void	error(char *msg);
 void	free_before_err(char **map, char *msg);
 void	free_gnl_err(char **map, char *msg);
 void	map_content_checker(char **map);
+void	flood_fill(char **map, t_map data, size_t rows, size_t cols);
 
 # endif
