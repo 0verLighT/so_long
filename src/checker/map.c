@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 00:18:54 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/26 02:40:29 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/26 20:54:21 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,44 @@ static void map_content_border(char **map, size_t rows)
 	}
 	map_count_event(map, '\0');
 }
+static	t_map get_data_map(char **map)
+{
+	t_map data;
+	size_t	i;
+	size_t	j;
+
+	data.C = 0;
+	i = 0;
+	j = 0;
+	while(map[i])
+	{
+		while(map[i][j])
+		{
+			if (map[i][j] == 'P')
+			{
+				data.P.x = i;
+				data.P.y = j;
+			}
+			else if (map[i][j] == 'C')
+				++data.C;
+			++j;
+		}
+		j = 0;
+		++i;
+	}
+	return (data);
+}
 
 void	map_content_checker(char **map)
 {
 	size_t rows;
+	size_t cols;
+	t_map data;
 
 	rows = 0;
 	while (map[rows])
 		++rows;
 	map_content_border(map, rows);
+	cols = ft_strlen(map[0]);
+	data = get_data_map(map);
 }
