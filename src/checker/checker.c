@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 01:19:32 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/26 02:20:47 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/27 23:32:38 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,8 @@ static void	valid_path(char **av)
 	close(fd);
 }
 
-int	checker(char **av)
+void	checker(char **av, char **map)
 {
-	char		**map;
 	size_t		i;
 
 	valid_path(av);
@@ -117,5 +116,4 @@ int	checker(char **av)
 		++i;
 	}
 	free(map);
-	return (0);
 }

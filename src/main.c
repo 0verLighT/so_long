@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 21:55:08 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/24 23:51:46 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/27 23:33:25 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@ void window_init(void)
 }
 int main(int ac, char **av)
 {
+	char **map;
+
+	map = NULL;
 	if (ac != 2)
 		return (-1);
-	if (checker(av) == 1)
-		return (-1);
+	checker(av, map);
 	return (0);
 }

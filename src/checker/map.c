@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 00:18:54 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/27 16:57:26 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/27 23:29:08 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,8 @@ static	t_map get_data_map(char **map)
 		{
 			if (map[i][j] == 'P')
 			{
-				data.P.x = i;
-				data.P.y = j;
+				data.P.x = j;
+				data.P.y = i;
 			}
 			else if (map[i][j] == 'C')
 				++data.C;
@@ -106,9 +106,11 @@ static	t_map get_data_map(char **map)
 
 void	map_content_checker(char **map)
 {
-	size_t rows;
-	size_t cols;
-	t_map data;
+	size_t		rows;
+	size_t		cols;
+	t_map		data;
+	char		**temp_map;
+	size_t		i;
 
 	rows = 0;
 	while (map[rows])
@@ -116,5 +118,14 @@ void	map_content_checker(char **map)
 	map_content_border(map, rows);
 	cols = ft_strlen(map[0]);
 	data = get_data_map(map);
-	flood_fill(map, data, rows, cols);
+	i = 0;
+	temp_map = malloc(sizeof(char *) * (rows + 1));
+	while (i < rows)
+	{
+		temp_map[i] = ft_strdup(map[i]);
+		++i;
+	}
+	temp_map[i] = NULL;
+	if (flood_fill(temp_map, data, rows, cols) == -1)
+		free_before_err(map, "Error");
 }
