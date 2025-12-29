@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 01:19:32 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/27 23:32:38 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/29 00:23:14 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	count_row(char *pathfile)
 	close(fd);
 	return (count);
 }
-// test with frist line \n
+
 static char	*line_checker(char *line)
 {
 	char			*newline;
@@ -57,7 +57,6 @@ static char	*line_checker(char *line)
 		ft_strlen(newline);
 	prev_len = len;
 	return (newline);
-	
 }
 
 static char	**append_map(char *pathfile)

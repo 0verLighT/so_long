@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 00:18:54 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/27 23:29:08 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/29 00:27:29 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@
 - [x] Must contain exactly 1 Starting Position (P).
 - [x] Duplicates of E or P are forbidden.
 
-- [x] The map must be enclosed/surrounded by walls. If it is not, the program must
-return an error. -> check [0][j] = 1 check [max][j] = 1 same for colmun.
+- [x] The map must be enclosed/surrounded by walls. If it is not, the program 
+ must return an error. -> check [0][j] = 1 check [max][j] = 1 same for colmun.
 */
 
 static void	map_count_event(char **map, int character)
 {
-	static size_t c = 0;
-	static size_t e = 0;
-	static size_t p = 0;
+	static size_t	c = 0;
+	static size_t	e = 0;
+	static size_t	p = 0;
 
 	if (!map)
 	{
@@ -40,7 +40,7 @@ static void	map_count_event(char **map, int character)
 		else if (character == 'P')
 			++p;
 		else if (character == '1' || character == '0')
-			return;
+			return ;
 		else
 			free_before_err(map, "Error\n");
 	}
@@ -48,7 +48,7 @@ static void	map_count_event(char **map, int character)
 		free_before_err(map, "Error\n");
 }
 
-static void map_content_border(char **map, size_t rows)
+static void	map_content_border(char **map, size_t rows)
 {
 	size_t	i;
 	size_t	j;
@@ -60,7 +60,7 @@ static void map_content_border(char **map, size_t rows)
 		while (map[i][j])
 		{
 			if (((i == 0 || i == rows) || (j == 0 || j == ft_strlen(map[i])))
-			&& map[i][j] != '1')
+				&& map[i][j] != '1')
 				free_before_err(map, "Error\n");
 			if (map[i][j] == '0' || map[i][j] == '1' || map[i][j] == 'C'
 				|| map[i][j] == 'E' || map[i][j] == 'P')
@@ -76,18 +76,19 @@ static void map_content_border(char **map, size_t rows)
 	}
 	map_count_event(map, '\0');
 }
-static	t_map get_data_map(char **map)
+
+static t_map	get_data_map(char **map)
 {
-	t_map data;
+	t_map	data;
 	size_t	i;
 	size_t	j;
 
 	data.C = 0;
 	i = 0;
 	j = 0;
-	while(map[i])
+	while (map[i])
 	{
-		while(map[i][j])
+		while (map[i][j])
 		{
 			if (map[i][j] == 'P')
 			{

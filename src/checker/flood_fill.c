@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 01:25:59 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/27 23:30:10 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/29 00:27:45 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	check_flood_fill(char **map)
 		while (map[i][j])
 		{
 			if (map[i][j] == 'C' || map[i][j] == 'E')
-				{
-					return_code = -1;
-					break;
-				}
+			{
+				return_code = -1;
+				break ;
+			}
 			++j;
 		}
 		j = 0;
@@ -40,30 +40,29 @@ int	check_flood_fill(char **map)
 	}
 	return (return_code);
 }
-static void fill(char **map, t_point size, char start, size_t row, size_t col)
+
+static void	fill(char **map, t_point size, size_t row, size_t col)
 {
 	if (row >= size.y || col >= size.x)
 		return ;
 	if (map[row][col] == 'X' || map[row][col] == '1')
 		return ;
 	map[row][col] = 'X';
-	fill(map, size, start, row - 1, col);
-	fill(map, size, start, row + 1, col);
-	fill(map, size, start, row, col - 1);
-	fill(map, size, start, row, col + 1);
+	fill(map, size, row - 1, col);
+	fill(map, size, row + 1, col);
+	fill(map, size, row, col - 1);
+	fill(map, size, row, col + 1);
 }
 
 int	flood_fill(char **map, t_map data, size_t rows, size_t cols)
 {
-	char start;
 	t_point	size;
 	int		return_code;
 	size_t	i;
 
 	size.x = cols;
 	size.y = rows;
-	start = map[data.P.x][data.P.y];
-	fill(map, size, start, data.P.y, data.P.x);
+	fill(map, size, data.P.y, data.P.x);
 	return_code = check_flood_fill(map);
 	i = 0;
 	while (map[i])
