@@ -11,12 +11,14 @@ INCLUDES = -Iincludes -I$(MLX_DIR)/includes -I$(LIBFT_DIR)
 BUILD_DIR = .build
 SRC = main.c
 SRC_CHECKER = map.c checker.c error.c flood_fill.c
+SRC_WINDOW = init.c
 SRC_HOOK = key.c window.c
 
 SRCS = \
 	$(addprefix src/, $(SRC)) \
 	$(addprefix src/checker/, $(SRC_CHECKER)) \
-	$(addprefix src/hook/, $(SRC_HOOK))
+	$(addprefix src/hook/, $(SRC_HOOK)) \
+	$(addprefix src/window/, $(SRC_WINDOW))
 
 
 OBJS = $(SRCS:%.c=$(BUILD_DIR)/%.o)

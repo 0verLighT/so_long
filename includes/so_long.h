@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 00:19:22 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/27 23:32:50 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/30 02:03:59 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@ typedef struct
 {
 	mlx_context mlx;
 	mlx_window win;
+	mlx_window_create_info	info;
+	mlx_image blue;
+	mlx_image black;
+	mlx_image green;
+	mlx_image red;
+	mlx_image grey;
+	
 } mlx_t;
 
 typedef struct s_point
@@ -47,6 +54,7 @@ void	error(char *msg);
 void	free_before_err(char **map, char *msg);
 void	free_gnl_err(char **map, char *msg);
 void	map_content_checker(char **map);
-int	flood_fill(char **map, t_map data, size_t rows, size_t cols);
+int		flood_fill(char **map, t_map data, size_t rows, size_t cols);
+void	window_init(void);
 
 # endif
