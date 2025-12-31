@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 00:19:22 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 22:37:21 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 23:01:50 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 # include <unistd.h>
 # include "../libft/includes/libft.h"
 # include <fcntl.h>
-# include <errno.h>
 # include <string.h>
-# include <stdio.h>
 
 typedef struct s_point
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: amartel <amartel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 01:19:32 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 19:32:32 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 23:09:55 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ static int	count_row(char *pathfile)
 		free(line);
 	}
 	close(fd);
+	if (count <= 0)
+		error("Invalid map");
+	else if (count > 25)
+		error("Invalid size map");
 	return (count);
 }
 
@@ -68,8 +72,6 @@ static char	**append_map(char *pathfile)
 	size_t	i;
 
 	rows = count_row(pathfile);
-	if (rows <= 0 || rows > 25)
-		error("Invalid map");
 	map = malloc(sizeof(char *) * (rows + 1));
 	if (!map)
 		error("malloc error");

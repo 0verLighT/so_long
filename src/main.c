@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: amartel <amartel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 21:55:08 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/30 23:17:08 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 23:18:09 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 int	main(int ac, char **av)
 {
 	char	**map;
+	size_t	i;
 
 	map = NULL;
 	if (ac != 2)
 		return (-1);
 	map = checker(av, map);
 	window_init(map);
+	i = 0;
+	while (map[i])
+		free(map[i++]);
 	free(map);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: amartel <amartel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 00:44:00 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 19:40:50 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 23:19:42 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,9 @@
 
 void	error(char *msg)
 {
-	if (errno)
-	{
-		perror(msg);
-		exit(1);
-	}
-	else
-	{
 		write(2, msg, ft_strlen(msg));
+		write(2, "\n", 1);
 		exit(1);
-	}
 }
 
 void	free_gnl_err(char **map, char *msg)
@@ -36,6 +29,7 @@ void	free_gnl_err(char **map, char *msg)
 	free(map);
 	get_next_line(-1);
 	write(2, msg, ft_strlen(msg));
+	write(2, "\n", 1);
 	exit(1);
 }
 
@@ -48,5 +42,6 @@ void	free_before_err(char **map, char *msg)
 		free(map[i++]);
 	free(map);
 	write(2, msg, ft_strlen(msg));
+	write(2, "\n", 1);
 	exit(1);
 }
