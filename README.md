@@ -41,6 +41,6 @@ And execute the program.
 ## dev 
 
 - [x] Hook (ESC and close window)
-- [ ] Map checker (flood fill)
-- [ ] Display Map
+- [x] Map checker (flood fill)
+- [x] Display Map
 - [ ] Count move shell

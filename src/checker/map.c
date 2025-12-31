@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 00:18:54 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/29 00:27:29 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 01:12:41 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,6 @@ void	map_content_checker(char **map)
 		++i;
 	}
 	temp_map[i] = NULL;
-	if (flood_fill(temp_map, data, rows, cols) == -1)
+	if (flood_fill(temp_map, data, rows, cols) == -1 || cols > 25)
 		free_before_err(map, "Error");
 }

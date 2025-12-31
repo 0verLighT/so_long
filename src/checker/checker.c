@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 01:19:32 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/29 00:23:14 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 01:11:05 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ static char	**append_map(char *pathfile)
 	size_t	i;
 
 	rows = count_row(pathfile);
-	if (rows <= 0)
-		error("Invalid map : 0 rows detect");
+	if (rows <= 0 || rows > 25)
+		error("Invalid map");
 	map = malloc(sizeof(char *) * (rows + 1));
 	if (!map)
 		error("malloc error");
@@ -100,7 +100,7 @@ static void	valid_path(char **av)
 	close(fd);
 }
 
-void	checker(char **av, char **map)
+char	**checker(char **av, char **map)
 {
 	size_t		i;
 
@@ -111,8 +111,7 @@ void	checker(char **av, char **map)
 	while (map[i])
 	{
 		printf("Rows %ld : %s\n", i, map[i]);
-		free(map[i]);
 		++i;
 	}
-	free(map);
+	return (map);
 }
