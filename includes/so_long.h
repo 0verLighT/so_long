@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 00:19:22 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 01:04:45 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 02:18:20 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@
 # include <string.h>
 #include <stdio.h>
 
+typedef struct s_point
+{
+	size_t	x;
+	size_t	y;
+} t_point;
 
-typedef struct
+typedef struct s_mlx
 {
 	mlx_context mlx;
 	mlx_window win;
@@ -32,14 +37,9 @@ typedef struct
 	mlx_image gen;
 	mlx_image red;
 	mlx_image gey;
-	
+	char **map;
+	t_point *player;
 } mlx_t;
-
-typedef struct s_point
-{
-	size_t	x;
-	size_t	y;
-} t_point;
 
 typedef struct s_map
 {
@@ -56,6 +56,6 @@ void	free_gnl_err(char **map, char *msg);
 void	map_content_checker(char **map);
 int		flood_fill(char **map, t_map data, size_t rows, size_t cols);
 void	window_init(char **map);
-void	update(mlx_t *m, char **map);
+void	update(void *param);
 
 # endif

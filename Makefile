@@ -11,7 +11,7 @@ INCLUDES = -Iincludes -I$(MLX_DIR)/includes -I$(LIBFT_DIR)
 BUILD_DIR = .build
 SRC = main.c
 SRC_CHECKER = map.c checker.c error.c flood_fill.c
-SRC_WINDOW = init.c
+SRC_WINDOW = init.c map.c
 SRC_HOOK = key.c window.c
 
 SRCS = \
