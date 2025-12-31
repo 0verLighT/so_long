@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: amartel <amartel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 01:36:53 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 19:59:14 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 22:39:04 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	img(t_m *m, size_t i, size_t j, char **map)
 
 void	update(void *param)
 {
-	t_m	*m;
+	t_m		*m;
 	char	**map;
 	int		i;
 	int		j;
