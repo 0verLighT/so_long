@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 01:36:53 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 03:11:58 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 19:10:55 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	update(void *param)
 	j = 0;
 	m = (mlx_t *)param;
 	map = m->map;
+	mlx_clear_window(m->mlx, m->win, (mlx_color){ .rgba = 0x000000FF });
 	while (map[i])
 	{
 		while (map[i][j])
@@ -42,4 +43,12 @@ void	update(void *param)
 		j = 0;
 		++i;
 	}
+}
+
+void	display_move(mlx_t *mlx)
+{
+	++mlx->move;
+	ft_putstr_fd("Move : ", 1);
+	ft_putnbr_fd(mlx->move, 1);
+	write(1, "\n", 1);
 }

@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key.c                                              :+:      :+:    :+:   */
+/*   on_down.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 00:17:56 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 18:58:35 by amartel          ###   ########.fr       */
+/*   Created: 2025/12/31 17:44:05 by amartel           #+#    #+#             */
+/*   Updated: 2025/12/31 19:13:01 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-/*
-Code key usefull
-
-'w' -> 26;
-'s' -> 22;
-'d' -> 7;
-'a' -> 4;
-*/
-void	key_hook(int key, void *param)
+void	on_down(mlx_t *mlx)
 {
-	mlx_t *m;
+	char **map;
 
-	m = (mlx_t *)param;
-	if (key == 41)
-		mlx_loop_end(m->mlx);
-	if (key == 26)
-		on_up(m);
-	if (key == 22)
-		on_down(m);
-	if (key == 7)
-		on_right(m);
-	if (key == 4)
-		on_left(m);
+	map = mlx->map;
+	if (map[mlx->player->y + 1][mlx->player->x] != '1')
+	{
+		was_exit(mlx);
+		mlx->player->y += 1;
+		event(mlx);
+		display_move(mlx);
+		is_exit(mlx);
+	}
 }

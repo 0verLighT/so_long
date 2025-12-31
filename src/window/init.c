@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 23:55:45 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 03:11:04 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 19:03:55 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,29 @@ static t_point	*get_player(char **map, t_point *player)
 	return (player);
 }
 
+static size_t	get_c(char **map)
+{
+	size_t	i;
+	size_t	j;
+	size_t	c;
+
+	i = 0;
+	j = 0;
+	c = 0;
+	while (map[i])
+	{
+		while (map[i][j])
+		{
+			if (map[i][j] == 'C')
+				++c;
+			++j;
+		}
+		j = 0;
+		++i;
+	}
+	return (c);
+}
+
 void	window_init(char **map)
 {
 	mlx_t		mlx;
@@ -84,12 +107,14 @@ void	window_init(char **map)
 	mlx.map = map;
 	mlx.win = mlx_new_window(mlx.mlx, &mlx.info);
 	mlx.player = malloc(sizeof(t_point));
+	mlx.move = 0;
 	get_player(map, mlx.player);
+	mlx.C = get_c(mlx.map);
 	mlx_set_fps_goal(mlx.mlx, 60);
+	init_textures(&mlx);
+	mlx_add_loop_hook(mlx.mlx, update, &mlx);
 	mlx_on_event(mlx.mlx, mlx.win, MLX_KEYDOWN, key_hook, &mlx);
 	mlx_on_event(mlx.mlx, mlx.win, MLX_WINDOW_EVENT, window_hook, mlx.mlx);
-	init_textures(&mlx);
-	update(&mlx);
 	mlx_loop(mlx.mlx);
 	destroy_mlx(&mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 00:19:22 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 02:18:20 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 19:08:48 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct s_mlx
 	mlx_image gey;
 	char **map;
 	t_point *player;
+	size_t	C;
+	size_t move;
 } mlx_t;
 
 typedef struct s_map
@@ -57,5 +59,13 @@ void	map_content_checker(char **map);
 int		flood_fill(char **map, t_map data, size_t rows, size_t cols);
 void	window_init(char **map);
 void	update(void *param);
+void	on_up(mlx_t *mlx);
+void	on_down(mlx_t *mlx);
+void	on_right(mlx_t *mlx);
+void	on_left(mlx_t *mlx);
+void	event(mlx_t *mlx);
+void	was_exit(mlx_t *mlx);
+void	is_exit(mlx_t *mlx);
+void	display_move(mlx_t *mlx);
 
 # endif
