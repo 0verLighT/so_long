@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 00:17:56 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 18:58:35 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 19:59:12 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ Code key usefull
 */
 void	key_hook(int key, void *param)
 {
-	mlx_t *m;
+	t_m	*m;
 
-	m = (mlx_t *)param;
+	m = (t_m *)param;
 	if (key == 41)
 		mlx_loop_end(m->mlx);
 	if (key == 26)

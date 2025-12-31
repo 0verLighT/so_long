@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 00:18:54 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 01:12:41 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 20:07:42 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static t_map	get_data_map(char **map)
 	size_t	i;
 	size_t	j;
 
-	data.C = 0;
+	data.c = 0;
 	i = 0;
 	j = 0;
 	while (map[i])
@@ -92,11 +92,11 @@ static t_map	get_data_map(char **map)
 		{
 			if (map[i][j] == 'P')
 			{
-				data.P.x = j;
-				data.P.y = i;
+				data.p.x = j;
+				data.p.y = i;
 			}
 			else if (map[i][j] == 'C')
-				++data.C;
+				++data.c;
 			++j;
 		}
 		j = 0;

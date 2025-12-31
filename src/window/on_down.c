@@ -6,15 +6,15 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 17:44:05 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 19:13:01 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 19:59:14 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	on_down(mlx_t *mlx)
+void	on_down(t_m *mlx)
 {
-	char **map;
+	char	**map;
 
 	map = mlx->map;
 	if (map[mlx->player->y + 1][mlx->player->x] != '1')

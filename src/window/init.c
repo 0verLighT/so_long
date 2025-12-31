@@ -6,16 +6,16 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 23:55:45 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 19:03:55 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 20:08:10 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	init_textures(mlx_t *mlx)
+static void	init_textures(t_m *mlx)
 {
-	int	i;
-	static char *texture[] = {
+	int			i;
+	static char	*texture[] = {
 		"asset/textures/blue.png",
 		"asset/textures/black.png",
 		"asset/textures/grey.png",
@@ -23,6 +23,7 @@ static void	init_textures(mlx_t *mlx)
 		"asset/textures/red.png",
 		NULL
 	};
+
 	mlx->bla = mlx_new_image_from_file(mlx->mlx, (char *)texture[1], &i, &i);
 	mlx->blu = mlx_new_image_from_file(mlx->mlx, (char *)texture[0], &i, &i);
 	mlx->red = mlx_new_image_from_file(mlx->mlx, (char *)texture[4], &i, &i);
@@ -30,7 +31,7 @@ static void	init_textures(mlx_t *mlx)
 	mlx->gey = mlx_new_image_from_file(mlx->mlx, (char *)texture[2], &i, &i);
 }
 
-static void	destroy_mlx(mlx_t *mlx)
+static void	destroy_mlx(t_m *mlx)
 {
 	mlx_destroy_image(mlx->mlx, mlx->bla);
 	mlx_destroy_image(mlx->mlx, mlx->red);
@@ -38,14 +39,13 @@ static void	destroy_mlx(mlx_t *mlx)
 	mlx_destroy_image(mlx->mlx, mlx->gen);
 	mlx_destroy_image(mlx->mlx, mlx->gey);
 	if (mlx->player)
-		free(mlx->player);	
+		free(mlx->player);
 	mlx_destroy_window(mlx->mlx, mlx->win);
 	mlx_destroy_context(mlx->mlx);
 }
 
 static t_point	*get_player(char **map, t_point *player)
 {
-	
 	size_t	i;
 	size_t	j;
 
@@ -96,7 +96,7 @@ static size_t	get_c(char **map)
 
 void	window_init(char **map)
 {
-	mlx_t		mlx;
+	t_m	mlx;
 
 	mlx.mlx = mlx_init();
 	mlx.info = (mlx_window_create_info){
@@ -109,7 +109,7 @@ void	window_init(char **map)
 	mlx.player = malloc(sizeof(t_point));
 	mlx.move = 0;
 	get_player(map, mlx.player);
-	mlx.C = get_c(mlx.map);
+	mlx.c = get_c(mlx.map);
 	mlx_set_fps_goal(mlx.mlx, 60);
 	init_textures(&mlx);
 	mlx_add_loop_hook(mlx.mlx, update, &mlx);

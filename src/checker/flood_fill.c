@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 01:25:59 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 01:20:33 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 20:07:29 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	flood_fill(char **map, t_map data, size_t rows, size_t cols)
 
 	size.x = cols;
 	size.y = rows;
-	fill(map, size, data.P.y, data.P.x);
+	fill(map, size, data.p.y, data.p.x);
 	return_code = check_flood_fill(map);
 	i = 0;
 	while (map[i])

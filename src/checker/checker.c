@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 01:19:32 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 01:11:05 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 19:32:32 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,16 +102,8 @@ static void	valid_path(char **av)
 
 char	**checker(char **av, char **map)
 {
-	size_t		i;
-
 	valid_path(av);
 	map = append_map(av[1]);
-	i = 0;
 	map_content_checker(map);
-	while (map[i])
-	{
-		printf("Rows %ld : %s\n", i, map[i]);
-		++i;
-	}
 	return (map);
 }
