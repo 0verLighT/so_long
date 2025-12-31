@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: amartel <amartel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 23:55:45 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 20:08:10 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 23:31:39 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,12 +99,13 @@ void	window_init(char **map)
 	t_m	mlx;
 
 	mlx.mlx = mlx_init();
+	mlx.map = map;
+	mlx.size = get_size(mlx.map);
 	mlx.info = (mlx_window_create_info){
-		.height = 400,
-		.width = 400,
+		.height = mlx.size.y,
+		.width = mlx.size.x,
 		.title = "so_long"
 	};
-	mlx.map = map;
 	mlx.win = mlx_new_window(mlx.mlx, &mlx.info);
 	mlx.player = malloc(sizeof(t_point));
 	mlx.move = 0;

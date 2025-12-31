@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 00:19:22 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 23:01:50 by amartel          ###   ########.fr       */
+/*   Updated: 2025/12/31 23:31:53 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_m
 	t_point					*player;
 	size_t					c;
 	size_t					move;
+	t_point					size;
 }	t_m;
 
 typedef struct s_map
@@ -65,5 +66,6 @@ void	event(t_m *mlx);
 void	was_exit(t_m *mlx);
 void	is_exit(t_m *mlx);
 void	display_move(t_m *mlx);
+t_point	get_size(char **map);
 
 #endif
