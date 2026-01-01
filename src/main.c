@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 21:55:08 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 23:18:09 by amartel          ###   ########.fr       */
+/*   Updated: 2026/01/01 01:52:18 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ int	main(int ac, char **av)
 
 	map = NULL;
 	if (ac != 2)
+	{
+		write(2, "./so_long <map.ber>\n", 21);
 		return (-1);
+	}
 	map = checker(av, map);
 	window_init(map);
 	i = 0;

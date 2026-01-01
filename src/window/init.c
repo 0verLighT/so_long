@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 23:55:45 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 23:45:12 by amartel          ###   ########.fr       */
+/*   Updated: 2026/01/01 01:56:34 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@ static void	destroy_mlx(t_m *mlx)
 	mlx_destroy_image(mlx->mlx, mlx->gey);
 	if (mlx->player)
 		free(mlx->player);
-	while (mlx->map[i])
-		free(mlx->map[i++]);
-	free(mlx->map);
 	mlx_destroy_window(mlx->mlx, mlx->win);
 	mlx_destroy_context(mlx->mlx);
 }
