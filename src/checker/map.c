@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
+/*   By: amartel <amartel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 00:18:54 by amartel           #+#    #+#             */
-/*   Updated: 2026/01/01 02:29:46 by amartel          ###   ########.fr       */
+/*   Updated: 2026/01/01 16:04:17 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,33 +48,33 @@ static void	map_count_event(char **map, int character)
 		free_before_err(map, "Error");
 }
 
-static void	map_content_border(char **map, size_t rows)
+static void	map_content_border(char **m, size_t rows)
 {
 	size_t	i;
 	size_t	j;
 
 	i = 0;
 	j = 0;
-	while (map[i])
+	while (m[i])
 	{
-		while (map[i][j])
+		while (m[i][j])
 		{
-			if (((i == 0 || i == rows - 1) || (j == 0 || j == ft_strlen(map[i]) - 1))
-				&& map[i][j] != '1')
-				free_before_err(map, "Error");
-			if (map[i][j] == '0' || map[i][j] == '1' || map[i][j] == 'C'
-				|| map[i][j] == 'E' || map[i][j] == 'P')
+			if (((i == 0 || i == rows) || (j == 0 || j == ft_strlen(m[i]) - 1))
+				&& m[i][j] != '1')
+				free_before_err(m, "Error");
+			if (m[i][j] == '0' || m[i][j] == '1' || m[i][j] == 'C'
+				|| m[i][j] == 'E' || m[i][j] == 'P')
 			{
-				map_count_event(NULL, map[i][j]);
+				map_count_event(NULL, m[i][j]);
 				++j;
 			}
 			else
-				free_before_err(map, "Error");
+				free_before_err(m, "Error");
 		}
 		j = 0;
 		++i;
 	}
-	map_count_event(map, '\0');
+	map_count_event(m, '\0');
 }
 
 static t_map	get_data_map(char **map)
@@ -116,7 +116,7 @@ void	map_content_checker(char **map)
 	rows = 0;
 	while (map[rows])
 		++rows;
-	map_content_border(map, rows);
+	map_content_border(map, rows - 1);
 	cols = ft_strlen(map[0]);
 	if (cols > 25)
 		free_before_err(map, "Invalid size map");
