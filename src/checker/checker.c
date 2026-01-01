@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 01:19:32 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 23:09:55 by amartel          ###   ########.fr       */
+/*   Updated: 2026/01/01 01:59:31 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static char	**append_map(char *pathfile)
 		map[i] = line_checker(line);
 		free(line);
 		if (!map[i++])
-			free_gnl_err(map, "Error\n");
+			free_gnl_err(map, "Error");
 	}
 	close(fd);
 	map[i] = NULL;
@@ -95,7 +95,7 @@ static void	valid_path(char **av)
 	int	fd;
 
 	if (!ft_strnstr(av[1] + ft_strlen(av[1]) - 4, ".ber", 4))
-		error("The file must be \".ber\" !\n");
+		error("The file must be \".ber\" !");
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
 		error("Error");

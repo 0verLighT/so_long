@@ -6,7 +6,7 @@
 /*   By: amartel <amartel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 00:18:54 by amartel           #+#    #+#             */
-/*   Updated: 2025/12/31 23:18:47 by amartel          ###   ########.fr       */
+/*   Updated: 2026/01/01 02:00:02 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ static void	map_count_event(char **map, int character)
 		else if (character == '1' || character == '0')
 			return ;
 		else
-			free_before_err(map, "Error\n");
+			free_before_err(map, "Error");
 	}
 	else if (c == 0 || p != 1 || e != 1)
-		free_before_err(map, "Error\n");
+		free_before_err(map, "Error");
 }
 
 static void	map_content_border(char **map, size_t rows)
@@ -61,7 +61,7 @@ static void	map_content_border(char **map, size_t rows)
 		{
 			if (((i == 0 || i == rows) || (j == 0 || j == ft_strlen(map[i])))
 				&& map[i][j] != '1')
-				free_before_err(map, "Error\n");
+				free_before_err(map, "Error");
 			if (map[i][j] == '0' || map[i][j] == '1' || map[i][j] == 'C'
 				|| map[i][j] == 'E' || map[i][j] == 'P')
 			{
@@ -69,7 +69,7 @@ static void	map_content_border(char **map, size_t rows)
 				++j;
 			}
 			else
-				free_before_err(map, "Error\n");
+				free_before_err(map, "Error");
 		}
 		j = 0;
 		++i;
