@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amartel <amartel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 23:55:45 by amartel           #+#    #+#             */
-/*   Updated: 2026/01/01 01:56:34 by amartel          ###   ########.fr       */
+/*   Updated: 2026/01/01 02:12:09 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ static void	init_textures(t_m *mlx)
 
 static void	destroy_mlx(t_m *mlx)
 {
-	size_t	i;
-
-	i = 0;
 	mlx_destroy_image(mlx->mlx, mlx->bla);
 	mlx_destroy_image(mlx->mlx, mlx->red);
 	mlx_destroy_image(mlx->mlx, mlx->blu);

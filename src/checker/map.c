@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amartel <amartel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: amartel <amartel@student.42angouleme.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 00:18:54 by amartel           #+#    #+#             */
-/*   Updated: 2026/01/01 02:00:02 by amartel          ###   ########.fr       */
+/*   Updated: 2026/01/01 02:29:46 by amartel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	map_content_border(char **map, size_t rows)
 	{
 		while (map[i][j])
 		{
-			if (((i == 0 || i == rows) || (j == 0 || j == ft_strlen(map[i])))
+			if (((i == 0 || i == rows - 1) || (j == 0 || j == ft_strlen(map[i]) - 1))
 				&& map[i][j] != '1')
 				free_before_err(map, "Error");
 			if (map[i][j] == '0' || map[i][j] == '1' || map[i][j] == 'C'
@@ -118,6 +118,8 @@ void	map_content_checker(char **map)
 		++rows;
 	map_content_border(map, rows);
 	cols = ft_strlen(map[0]);
+	if (cols > 25)
+		free_before_err(map, "Invalid size map");
 	data = get_data_map(map);
 	i = 0;
 	temp_map = malloc(sizeof(char *) * (rows + 1));
@@ -129,6 +131,4 @@ void	map_content_checker(char **map)
 	temp_map[i] = NULL;
 	if (flood_fill(temp_map, data, rows, cols) == -1)
 		free_before_err(map, "Error");
-	if (cols > 25)
-		free_before_err(map, "Invalid size map");
 }
